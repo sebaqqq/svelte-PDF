@@ -180,7 +180,7 @@
     doc.setFillColor(0, 255, 0); // Verde claro
     doc.rect(130, legendYPosition - 80, 5, 5, 'F'); // Cuadro verde claro
     doc.text('BUENO: entre 32,5 y 35,5 cms', 137, legendYPosition - 75);
-7
+    
     // Leyenda - Muy Bueno
     doc.setFillColor(0, 128, 0); // Verde oscuro
     doc.rect(130, legendYPosition - 70, 5, 5, 'F'); // Cuadro verde oscuro
