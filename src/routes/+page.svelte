@@ -221,7 +221,7 @@
       posible. Al tener los brazos en una posición no fija, éstos servirán para tomar impulso y así
       poder saltar más.
     `;
-    doc.text(counterMovementJump, 10, 150);
+    doc.text(Abalakov, 10, 150);
 
     doc.autoTable({
       startY: 190, // Posición Y donde empieza la tabla
@@ -262,6 +262,113 @@
       }
     });
 
+    // Añadir una nueva página 3
+    doc.addPage();
+
+    doc.setFillColor(14, 30, 46);
+    doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F'); 
+
+    doc.setFontSize(12);
+    doc.setTextColor(255, 255, 255); // Texto en blanco
+    const metersT10 = `
+      - Aceleración 10 metros (T10):
+
+      Prueba que consiste en correr en el menor tiempo posible 10 metros, entregando como
+      información que tan rápido es capaz de acelerar el jugador, comenzando en una posición
+      estática. El jugador comienza en posición neutra, y al sonido del silbato, debe salir lo más
+      rápido posible para correr en línea recta los 10 metros.
+    `;
+    doc.text(metersT10, 10, 30);
+
+    doc.autoTable({
+      startY: 65, // Posición Y donde empieza la tabla
+      head: [['RESULTADO DEL JUGADOR', '1,84', 'BUENO']],
+      body: [],
+      headStyles: {
+        fillColor: [31, 41, 55], // Fondo negro para el encabezado
+        textColor: [255, 255, 255], // Texto blanco para el encabezado
+        fontSize: 12,
+        fontStyle: 'bold'
+      },
+      styles: {
+        halign: 'center', // Centrar texto en las celdas
+      }
+    });
+
+    doc.autoTable({
+      startY: 80, // Posición Y donde empieza la tabla
+      head: [],
+      body: [
+        ['DEFICIENTE', 'Mayor que 2 segundos'],
+        ['REGULAR', 'Entre 1,85 y 2 segundos'],
+        ['BUENO', 'Entre 1,7 y 1,85 segundos'],
+        ['MUY BUENO', 'Menor que 1,7 segundos']
+      ],
+      headStyles: {
+        fillColor: [31, 41, 55], // Fondo negro para el encabezado
+        textColor: [255, 255, 255], // Texto blanco para el encabezado
+        fontSize: 12,
+        fontStyle: 'bold'
+      },
+      columnStyles: {
+        0: { cellWidth: 85, halign: 'center', fillColor: [200, 200, 200], textColor: [0, 0, 0] }, // Primera columna
+        1: { cellWidth: 97, halign: 'center', fillColor: [255, 255, 255], textColor: [0, 0, 0] },  // Segunda columna
+      },
+      styles: {
+        halign: 'center', 
+      }
+    });
+
+    doc.setFontSize(12);
+    doc.setTextColor(255, 255, 255); // Texto en blanco
+    const metersT30 = `
+      -  Aceleración 30 metros (T30):
+
+      Prueba que consiste en correr en el menor tiempo posible 30 metros, entregando como
+      información que tan rápido es capaz de acelerar el jugador, comenzando en una posición
+      estática. El jugador comienza en posición neutra, y al sonido del silbato, debe salir lo más
+      rápido posible para correr en línea recta los 30 metros.
+    `;
+    doc.text(metersT30, 10, 130);
+
+    doc.autoTable({
+      startY: 170, // Posición Y donde empieza la tabla
+      head: [['RESULTADO DEL JUGADOR', '4,39', 'MUY BUENO']],
+      body: [],
+      headStyles: {
+        fillColor: [31, 41, 55], // Fondo negro para el encabezado
+        textColor: [255, 255, 255], // Texto blanco para el encabezado
+        fontSize: 12,
+        fontStyle: 'bold'
+      },
+      styles: {
+        halign: 'center', // Centrar texto en las celdas
+      }
+    });
+
+    doc.autoTable({
+      startY: 185, // Posición Y donde empieza la tabla
+      head: [],
+      body: [
+        ['DEFICIENTE', 'Mayor que 5 segundos'],
+        ['REGULAR', 'Entre 4,5 y 5 segundos'],
+        ['BUENO', 'Entre 4 y 4,5 segundos'],
+        ['MUY BUENO', 'Menor que 4 segundos']
+      ],
+      headStyles: {
+        fillColor: [31, 41, 55], // Fondo negro para el encabezado
+        textColor: [255, 255, 255], // Texto blanco para el encabezado
+        fontSize: 12,
+        fontStyle: 'bold'
+      },
+      columnStyles: {
+        0: { cellWidth: 85, halign: 'center', fillColor: [200, 200, 200], textColor: [0, 0, 0] }, // Primera columna
+        1: { cellWidth: 97, halign: 'center', fillColor: [255, 255, 255], textColor: [0, 0, 0] },  // Segunda columna
+      },
+      styles: {
+        halign: 'center', 
+      }
+    });
 
     // Guardar el PDF o abrir en una nueva pestaña
     const pdfBlob = doc.output('blob');
