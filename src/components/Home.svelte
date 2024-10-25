@@ -1,6 +1,7 @@
 <script>
   import FirstPdf from "./PDF/firstPDF";
   import SecondPDF from "./PDF/secondPDF";
+  import ThirdPDF from "./PDF/thirdPDF";
 
   function generarPDF1() {
     const pdf = new FirstPdf();
@@ -11,6 +12,11 @@
     const pdf = new SecondPDF();
     pdf.generatePDF();
   }
+
+  function generarPDF3() {
+    const pdf = new ThirdPDF();
+    pdf.generatePDF();
+  }
 </script>
 
 
@@ -18,6 +24,7 @@
   <h1>Generar PDF en Svelte</h1>
   <button on:click={generarPDF1}>Generar PDF 1</button>
   <button on:click={generarPDF2}>Generar PDF 2</button>
+  <button on:click={generarPDF3}>Generar PDF 3</button>
 </div> 
 
 
