@@ -5,7 +5,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 
 Chart.register(PieController, ArcElement, Tooltip, Legend, ChartDataLabels);
 
-export default function GeneratePDFWithPieChart() {
+export default function SecondPDF() {
   const canvas = document.createElement("canvas");
   canvas.width = 400;
   canvas.height = 400;
