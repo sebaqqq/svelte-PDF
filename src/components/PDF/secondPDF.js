@@ -30,7 +30,7 @@ export default function GeneratePDFWithPieChart() {
           "#FFF6C3",
           "#6C005D",
         ],
-        borderColor: "#fff",
+        borderColor: "#1F2937",
       },
     ],
   };
@@ -114,10 +114,10 @@ export default function GeneratePDFWithPieChart() {
 
     // Añadir el gráfico al PDF
     //                             (X, Y, Ancho, Alto)
-    doc.addImage(chartImg, "PNG", 70, 50, 90, 90); // Ajustar la posición y tamaño del gráfico
+    doc.addImage(chartImg, "PNG", 70, 55, 90, 90); // Ajustar la posición y tamaño del gráfico
 
     doc.autoTable({
-      startY: 145,
+      startY: 140,
       margin: { left: 35 },
       head: [["Peso (kg)", "62,5", "CLASIFICACIÓN"]],
       body: [
