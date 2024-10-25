@@ -68,31 +68,58 @@ export default function GeneratePDFWithPieChart() {
     doc.setFontSize(18);
     doc.setTextColor(255, 255, 255);
     const pageWidth = doc.internal.pageSize.getWidth();
-    const titleText = "RESULTADOS DE EVALUACIÓN COMPOSICIÓN CORPORAL";
+    const titleText = "RESULTADOS DE EVALUACIÓN";
+    const subtitleText = "COMPOSICIÓN CORPORAL";
     const textWidth = doc.getTextWidth(titleText);
+    const subtitleTextWidth = doc.getTextWidth(subtitleText);
     const xTitlePosition = (pageWidth - textWidth) / 2;
+    const xSubtitlePosition = (pageWidth - subtitleTextWidth) / 2;
     doc.text(titleText, xTitlePosition, 20);
+    doc.text(subtitleText, xSubtitlePosition, 30);
 
-    // Sección de título
-    doc.setFont("helvetica", "bold");
     doc.setFontSize(12);
-    doc.text("Nombre:", 20, 35);
-    doc.text("Clemente Franulic", 40, 35);
+    doc.setFont("helvetica", "bold");
 
-    doc.text("Fecha:", 150, 35);
-    doc.text("24-10-2024", 170, 35);
+    doc.autoTable({
+      startY: 45,
+      head: [["NOMBRE:", "Sebastian Quintana"]],
+      body: [["POSICIÓN:", "Volante"]],
+      styles: {
+        fontSize: 12,
+        textColor: [255, 255, 255], // Texto blanco
+        fillColor: [31, 41, 55], // Fondo de las celdas con el color #1F2937 (RGB: 31, 41, 55)
+      },
+      headStyles: {
+        fillColor: [31, 41, 55], // Fondo negro para el encabezado
+        textColor: [255, 255, 255], // Texto blanco para el encabezado
+      },
+      columnStyles: {
+        0: {
+          fillColor: [31, 41, 55],
+          textColor: [255, 255, 255],
+          FontFace: "helvetica",
+          fontStyle: "bold",
+        },
+        1: {
+          fillColor: [31, 41, 55],
+          textColor: [255, 255, 255],
+          FontFace: "helvetica",
+          fontStyle: "bold",
+        },
+      },
+    });
 
-    doc.text("Posición:", 20, 45);
-    doc.text("Volante", 50, 45);
+    doc.text("Fecha:", 150, 50);
+    doc.text("24-10-2024", 170, 50);
 
     // Añadir el gráfico al PDF
     //                             (X, Y, Ancho, Alto)
-    doc.addImage(chartImg, "PNG", 10, 40, 90, 90); // Ajustar la posición y tamaño del gráfico
+    doc.addImage(chartImg, "PNG", 70, 50, 90, 90); // Ajustar la posición y tamaño del gráfico
 
     doc.autoTable({
-      startY: 50,
-      margin: { left: 10 },
-      head: [["Peso (kg)", "62,5"], ["CLASIFICACIÓN"]],
+      startY: 145,
+      margin: { left: 35 },
+      head: [["Peso (kg)", "62,5", "CLASIFICACIÓN"]],
       body: [
         ["Talla (cm)", "178,2", ""],
         ["IMC (kg/mt²)", "19,7", ""],
@@ -106,14 +133,14 @@ export default function GeneratePDFWithPieChart() {
         ["Kg. Masa ósea", "7,7", ""],
       ],
       columnStyles: {
-        0: { cellWidth: 50 }, // Ancho de la primera columna
-        1: { cellWidth: 30 }, // Ancho de la segunda columna
+        0: { cellWidth: 50 },
+        1: { cellWidth: 30 },
         2: { cellWidth: 50, fillColor: [230, 230, 230] }, // Ancho de la tercera columna y fondo gris claro
       },
       headStyles: {
-        fillColor: [0, 82, 136], // Color de fondo de la cabecera (azul oscuro)
-        textColor: [255, 255, 255], // Color del texto de la cabecera (blanco)
-        fontStyle: "bold", // Negrita para la cabecera
+        fillColor: [31, 41, 55],
+        textColor: [255, 255, 255],
+        fontStyle: "bold",
       },
       bodyStyles: {
         fontSize: 10, // Tamaño de letra de las celdas
@@ -124,8 +151,20 @@ export default function GeneratePDFWithPieChart() {
       theme: "grid", // Tema grid para mostrar todas las líneas
     });
 
+    //pagina 2
+    doc.addPage();
+
+    doc.setFillColor(14, 30, 46);
+    doc.rect(
+      0,
+      0,
+      doc.internal.pageSize.getWidth(),
+      doc.internal.pageSize.getHeight(),
+      "F"
+    );
+
     doc.autoTable({
-      startY: 145,
+      startY: 30,
       theme: "grid",
       head: [["Clasificación", "% Masa Adiposa"]],
       body: [
@@ -140,10 +179,17 @@ export default function GeneratePDFWithPieChart() {
         0: { cellWidth: 50 },
         1: { cellWidth: 40 },
       },
+
+      headStyles: {
+        fillColor: [31, 41, 55],
+        textColor: [255, 255, 255],
+        fontSize: 12,
+        fontStyle: "bold",
+      },
     });
 
     doc.autoTable({
-      startY: 145,
+      startY: 30,
       margin: { left: 70 },
       theme: "grid",
       head: [["Clasificación", "% Masa Muscular", "IMO"]],
@@ -160,10 +206,16 @@ export default function GeneratePDFWithPieChart() {
         0: { cellWidth: 30 },
         1: { cellWidth: 40 },
       },
+      headStyles: {
+        fillColor: [31, 41, 55],
+        textColor: [255, 255, 255],
+        fontSize: 12,
+        fontStyle: "bold",
+      },
     });
 
     doc.autoTable({
-      startY: 200,
+      startY: 90,
       margin: { left: 20 },
       theme: "grid",
       head: [["SUMATORIA 6 PLIEGUES", ""]],
@@ -177,10 +229,16 @@ export default function GeneratePDFWithPieChart() {
         0: { cellWidth: 50 },
         1: { cellWidth: 40 },
       },
+      headStyles: {
+        fillColor: [31, 41, 55],
+        textColor: [255, 255, 255],
+        fontSize: 12,
+        fontStyle: "bold",
+      },
     });
 
     doc.autoTable({
-      startY: 200,
+      startY: 90,
       margin: { left: 70 },
       theme: "grid",
       head: [["Metodo Evaluación"]],
@@ -189,6 +247,12 @@ export default function GeneratePDFWithPieChart() {
       margin: { left: 105 },
       columnStyles: {
         0: { cellWidth: 60 },
+      },
+      headStyles: {
+        fillColor: [31, 41, 55],
+        textColor: [255, 255, 255],
+        fontSize: 12,
+        fontStyle: "bold",
       },
     });
 

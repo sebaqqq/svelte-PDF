@@ -25,7 +25,7 @@ export default function FirstPDF() {
 
   //Tabla para "Nombre" y "Categoría"
   doc.autoTable({
-    startY: 30, // Posición Y donde empieza la tabla
+    startY: 30,
     head: [
       ["NOMBRE", "Sebastian Quintana"],
       ["CATEGORÍA", "USA PRO"],
@@ -33,38 +33,38 @@ export default function FirstPDF() {
     body: [],
     theme: "grid",
     styles: {
-      halign: "center", // Centrar texto en las celdas
+      halign: "center",
       fontSize: 12,
-      textColor: [255, 255, 255], // Texto blanco
-      fillColor: [31, 41, 55], // Fondo de las celdas con el color #1F2937 (RGB: 31, 41, 55)
+      textColor: [255, 255, 255],
+      fillColor: [31, 41, 55],
     },
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
     },
   });
 
   // Subtítulo: Evaluaciones Físicas
   doc.autoTable({
-    startY: doc.autoTable.previous.finalY + 10, // Posición Y donde empieza el subtítulo
+    startY: doc.autoTable.previous.finalY + 10,
     head: [["Evaluaciones Físicas"]],
     body: [],
     theme: "grid",
     styles: {
-      halign: "center", // Centrar texto en las celdas
+      halign: "center",
       fontSize: 12,
-      textColor: [255, 255, 255], // Texto blanco
-      fillColor: [31, 41, 55], // Fondo de las celdas con el color #1F2937 (RGB: 31, 41, 55)
+      textColor: [255, 255, 255],
+      fillColor: [31, 41, 55],
     },
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
     },
   });
 
   // Texto de la evaluación Squat Jump (SJ)
   doc.setFontSize(12);
-  doc.setTextColor(255, 255, 255); // Texto en blanco
+  doc.setTextColor(255, 255, 255);
   const squatJumpText = `
     - Squat Jump (SJ):
 
@@ -240,22 +240,22 @@ export default function FirstPDF() {
   doc.text(Abalakov, 10, 150);
 
   doc.autoTable({
-    startY: 190, // Posición Y donde empieza la tabla
+    startY: 190,
     head: [["RESULTADO DEL JUGADOR", "51,8", "MUY BUENO"]],
     body: [],
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
       fontSize: 12,
       fontStyle: "bold",
     },
     styles: {
-      halign: "center", // Centrar texto en las celdas
+      halign: "center",
     },
   });
 
   doc.autoTable({
-    startY: 205, // Posición Y donde empieza la tabla
+    startY: 205,
     head: [],
     body: [
       ["DEFICIENTE", "Menor a 37 cms"],
@@ -264,8 +264,8 @@ export default function FirstPDF() {
       ["MUY BUENO", "Sobre 45 cms"],
     ],
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
       fontSize: 12,
       fontStyle: "bold",
     },
@@ -275,13 +275,13 @@ export default function FirstPDF() {
         halign: "center",
         fillColor: [200, 200, 200],
         textColor: [0, 0, 0],
-      }, // Primera columna
+      },
       1: {
         cellWidth: 97,
         halign: "center",
         fillColor: [255, 255, 255],
         textColor: [0, 0, 0],
-      }, // Segunda columna
+      },
     },
     styles: {
       halign: "center",
@@ -301,7 +301,7 @@ export default function FirstPDF() {
   );
 
   doc.setFontSize(12);
-  doc.setTextColor(255, 255, 255); // Texto en blanco
+  doc.setTextColor(255, 255, 255);
   const metersT10 = `
     - Aceleración 10 metros (T10):
 
@@ -313,22 +313,22 @@ export default function FirstPDF() {
   doc.text(metersT10, 10, 30);
 
   doc.autoTable({
-    startY: 65, // Posición Y donde empieza la tabla
+    startY: 65,
     head: [["RESULTADO DEL JUGADOR", "1,84", "BUENO"]],
     body: [],
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
       fontSize: 12,
       fontStyle: "bold",
     },
     styles: {
-      halign: "center", // Centrar texto en las celdas
+      halign: "center",
     },
   });
 
   doc.autoTable({
-    startY: 80, // Posición Y donde empieza la tabla
+    startY: 80,
     head: [],
     body: [
       ["DEFICIENTE", "Mayor que 2 segundos"],
@@ -337,8 +337,8 @@ export default function FirstPDF() {
       ["MUY BUENO", "Menor que 1,7 segundos"],
     ],
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
       fontSize: 12,
       fontStyle: "bold",
     },
@@ -348,13 +348,13 @@ export default function FirstPDF() {
         halign: "center",
         fillColor: [200, 200, 200],
         textColor: [0, 0, 0],
-      }, // Primera columna
+      },
       1: {
         cellWidth: 97,
         halign: "center",
         fillColor: [255, 255, 255],
         textColor: [0, 0, 0],
-      }, // Segunda columna
+      },
     },
     styles: {
       halign: "center",
@@ -362,7 +362,7 @@ export default function FirstPDF() {
   });
 
   doc.setFontSize(12);
-  doc.setTextColor(255, 255, 255); // Texto en blanco
+  doc.setTextColor(255, 255, 255);
   const metersT30 = `
     -  Aceleración 30 metros (T30):
 
@@ -374,22 +374,22 @@ export default function FirstPDF() {
   doc.text(metersT30, 10, 130);
 
   doc.autoTable({
-    startY: 170, // Posición Y donde empieza la tabla
+    startY: 170,
     head: [["RESULTADO DEL JUGADOR", "4,39", "MUY BUENO"]],
     body: [],
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
       fontSize: 12,
       fontStyle: "bold",
     },
     styles: {
-      halign: "center", // Centrar texto en las celdas
+      halign: "center",
     },
   });
 
   doc.autoTable({
-    startY: 185, // Posición Y donde empieza la tabla
+    startY: 185,
     head: [],
     body: [
       ["DEFICIENTE", "Mayor que 5 segundos"],
@@ -398,8 +398,8 @@ export default function FirstPDF() {
       ["MUY BUENO", "Menor que 4 segundos"],
     ],
     headStyles: {
-      fillColor: [31, 41, 55], // Fondo negro para el encabezado
-      textColor: [255, 255, 255], // Texto blanco para el encabezado
+      fillColor: [31, 41, 55],
+      textColor: [255, 255, 255],
       fontSize: 12,
       fontStyle: "bold",
     },
@@ -409,20 +409,19 @@ export default function FirstPDF() {
         halign: "center",
         fillColor: [200, 200, 200],
         textColor: [0, 0, 0],
-      }, // Primera columna
+      },
       1: {
         cellWidth: 97,
         halign: "center",
         fillColor: [255, 255, 255],
         textColor: [0, 0, 0],
-      }, // Segunda columna
+      },
     },
     styles: {
       halign: "center",
     },
   });
 
-  // Guardar el PDF o abrir en una nueva pestaña
   const pdfBlob = doc.output("blob");
   const pdfUrl = URL.createObjectURL(pdfBlob);
   window.open(pdfUrl);
