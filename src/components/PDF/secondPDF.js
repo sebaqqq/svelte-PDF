@@ -86,12 +86,12 @@ export default function GeneratePDFWithPieChart() {
       body: [["POSICIÓN:", "Volante"]],
       styles: {
         fontSize: 12,
-        textColor: [255, 255, 255], // Texto blanco
-        fillColor: [31, 41, 55], // Fondo de las celdas con el color #1F2937 (RGB: 31, 41, 55)
+        textColor: [255, 255, 255],
+        fillColor: [31, 41, 55],
       },
       headStyles: {
-        fillColor: [31, 41, 55], // Fondo negro para el encabezado
-        textColor: [255, 255, 255], // Texto blanco para el encabezado
+        fillColor: [31, 41, 55],
+        textColor: [255, 255, 255],
       },
       columnStyles: {
         0: {
@@ -113,12 +113,12 @@ export default function GeneratePDFWithPieChart() {
     doc.text("24-10-2024", 170, 50);
 
     // Añadir el gráfico al PDF
-    //                             (X, Y, Ancho, Alto)
-    doc.addImage(chartImg, "PNG", 70, 55, 90, 90); // Ajustar la posición y tamaño del gráfico
+    //                            (X, Y, Ancho, Alto)
+    doc.addImage(chartImg, "PNG", 70, 55, 90, 90);
 
     doc.autoTable({
       startY: 140,
-      margin: { left: 35 },
+      margin: { left: 20 },
       head: [["Peso (kg)", "62,5", "CLASIFICACIÓN"]],
       body: [
         ["Talla (cm)", "178,2", ""],
@@ -133,9 +133,9 @@ export default function GeneratePDFWithPieChart() {
         ["Kg. Masa ósea", "7,7", ""],
       ],
       columnStyles: {
-        0: { cellWidth: 50 },
-        1: { cellWidth: 30 },
-        2: { cellWidth: 50, fillColor: [230, 230, 230] }, // Ancho de la tercera columna y fondo gris claro
+        0: { cellWidth: 70 },
+        1: { cellWidth: 50 },
+        2: { cellWidth: 50, fillColor: [230, 230, 230] },
       },
       headStyles: {
         fillColor: [31, 41, 55],
@@ -143,12 +143,12 @@ export default function GeneratePDFWithPieChart() {
         fontStyle: "bold",
       },
       bodyStyles: {
-        fontSize: 10, // Tamaño de letra de las celdas
+        fontSize: 10,
       },
       alternateRowStyles: {
-        fillColor: [255, 255, 255], // Fondo blanco para filas alternas
+        fillColor: [255, 255, 255],
       },
-      theme: "grid", // Tema grid para mostrar todas las líneas
+      theme: "grid",
     });
 
     //pagina 2
@@ -190,7 +190,7 @@ export default function GeneratePDFWithPieChart() {
 
     doc.autoTable({
       startY: 30,
-      margin: { left: 70 },
+      margin: { left: 105 },
       theme: "grid",
       head: [["Clasificación", "% Masa Muscular", "IMO"]],
       body: [
@@ -200,8 +200,6 @@ export default function GeneratePDFWithPieChart() {
         ["Bajo", "40,6 - 43,9", "3,5 - 3,8"],
         ["Muy Bajo", "< 40,6", "< 3,0"],
       ],
-
-      margin: { left: 105 },
       columnStyles: {
         0: { cellWidth: 30 },
         1: { cellWidth: 40 },
@@ -216,14 +214,12 @@ export default function GeneratePDFWithPieChart() {
 
     doc.autoTable({
       startY: 90,
-      margin: { left: 20 },
       theme: "grid",
       head: [["SUMATORIA 6 PLIEGUES", ""]],
       body: [
         ["Jugadores de campo", "< 50 mm"],
         ["Arqueros", "< 60 mm"],
       ],
-
       margin: { left: 10 },
       columnStyles: {
         0: { cellWidth: 50 },
@@ -239,11 +235,9 @@ export default function GeneratePDFWithPieChart() {
 
     doc.autoTable({
       startY: 90,
-      margin: { left: 70 },
       theme: "grid",
       head: [["Metodo Evaluación"]],
       body: [["Pentacompartimental (D. Kerr)"]],
-
       margin: { left: 105 },
       columnStyles: {
         0: { cellWidth: 60 },
