@@ -46,6 +46,6 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px; /* Mueve el botón hacia abajo */
+    margin-top: 20px; 
   }
 </style>
