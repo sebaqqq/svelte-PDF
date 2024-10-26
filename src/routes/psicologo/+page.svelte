@@ -11,6 +11,11 @@
   let testTecnificacion = "";
   let observaciones = "";
 
+  let nombrePsicologo = "";
+  let institucion = "";
+  let telefono = "";
+  let correo = "";
+
   let evaluationValues = {
     autoConfianza: "",
     energiaNegativa: "",
@@ -131,7 +136,6 @@
       const xTitlePosition = (pageWidth - textWidth) / 2;
       doc.text(titleText, xTitlePosition, 20);
 
-      // Define the table headers and rows
       const headers = [["Campo", "Valor"]];
       const data = [
         ["Deportista", deportista],
@@ -231,6 +235,46 @@
       });
       doc.text(observaciones, 15, 40);
 
+      doc.autoTable({
+        startY:  215,
+        head: [["Datos de contacto área psicológica "]],
+        body: [],
+        theme: "grid",
+        styles: {
+          halign: "center",
+          fontSize: 12,
+          textColor: [255, 255, 255],
+          fillColor: [31, 41, 55],
+        },
+        headStyles: {
+          fillColor: [31, 41, 55],
+          textColor: [255, 255, 255],
+        },
+      });
+      doc.text(testTecnificacion, 15, 40);
+
+
+      const headersProfessional = [["Campo", "Valor"]];
+      const dataProfessional = [
+        ["Nombre psicólogo", nombrePsicologo],
+        ["Institución", institucion],
+        ["Teléfono", telefono],
+        ["Correo", correo],
+      ];
+
+      doc.autoTable({
+        head: headersProfessional,
+        body: dataProfessional,
+        startY: 225,
+        theme: "grid",
+        headStyles: {
+          fillColor: [31, 41, 55],
+          textColor: [255, 255, 255],
+          fontSize: 12,
+          fontStyle: "bold",
+        },
+      });
+
       const pdfBlob = doc.output("blob");
       const pdfUrl = URL.createObjectURL(pdfBlob);
       window.open(pdfUrl);
@@ -284,6 +328,23 @@
       <div class="form-group full-width">
         <label for="observaciones">Observaciones</label>
         <textarea id="observaciones" bind:value={observaciones} placeholder="Observaciones" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="categoria">Nombre psicólogo</label>
+        <input type="text" id="categoria" bind:value={nombrePsicologo} placeholder="Nombre psicólogo" />
+      </div>
+      <div class="form-group">
+        <label for="categoria">Institución</label>
+        <input type="text" id="categoria" bind:value={institucion} placeholder="Institución" />
+      </div>
+      <div class="form-group">
+        <label for="categoria">Teléfono</label>
+        <input type="text" id="categoria" bind:value={telefono} placeholder="ej: +569 55443322" />
+      </div>
+      <div class="form-group">
+        <label for="categoria">Correo</label>
+        <input type="text" id="categoria" bind:value={correo} placeholder="correo@gmail.com" />
       </div>
       
       <button on:click={generatePDF} class="generate-btn">
