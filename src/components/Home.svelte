@@ -25,6 +25,7 @@
   <button on:click={generarPDF1}>Generar PDF 1</button>
   <button on:click={generarPDF2}>Generar PDF 2</button>
   <button on:click={generarPDF3}>Generar PDF 3</button>
+  <button on:click={() => window.location.href = "/psicologo"}>Pdf psicologico</button>
 </div> 
 
 
