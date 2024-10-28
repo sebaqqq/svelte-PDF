@@ -18,4 +18,5 @@ pnpm install jspdf
 
 pnpm install jspdf-autotable
 
+pnpm install  chart.js
 ```
