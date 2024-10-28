@@ -173,7 +173,24 @@
           textColor: [255, 255, 255],
         },
       });
-      doc.text(entrevista, 15, 90);
+
+      const splitText = doc.splitTextToSize(entrevista, 180);
+      let yPosition = 90; 
+      const pageHeight = doc.internal.pageSize.height; 
+      const lineHeight = 10; 
+
+      splitText.forEach(line => {
+        if (yPosition + lineHeight > pageHeight - 20) {
+          doc.addPage(); 
+
+          doc.setFillColor(14, 30, 46);
+          doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), "F");
+
+          yPosition = 20; 
+        }
+        doc.text(line, 15, yPosition);
+        yPosition += lineHeight; 
+      });
       
       // Añadir una nueva página 2
       doc.addPage();
@@ -203,8 +220,37 @@
           textColor: [255, 255, 255],
         },
       });
-      doc.text(testTecnificacion, 15, 40);
-      doc.addImage(chartImg, "PNG", 45, 185, 120, 80);
+
+      const splitText2 = doc.splitTextToSize(testTecnificacion, 180);
+      let yPosition2 = 40; 
+      const pageHeight2 = doc.internal.pageSize.height; 
+      const lineHeight2 = 10;
+      const chartHeight = 80; 
+      const chartYPosition = 155; 
+
+      splitText2.forEach(line => {
+        if (yPosition2 + lineHeight2 > pageHeight2 - 20) {
+          doc.addPage(); 
+
+          doc.setFillColor(14, 30, 46);
+          doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), "F");
+
+          yPosition2 = 20; 
+        }
+        doc.text(line, 15, yPosition2);
+        yPosition2 += lineHeight2; 
+      });
+
+      if (yPosition2 + chartHeight > pageHeight2 - 20) {
+        doc.addPage();
+
+        doc.setFillColor(14, 30, 46);
+        doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), "F");
+
+        yPosition2 = 20; 
+      }
+
+      doc.addImage(chartImg, "PNG", 45, 155, 120, 80);
 
       // Añadir una nueva página 3
       doc.addPage();
@@ -219,7 +265,7 @@
       );
       doc.autoTable({
         startY:  20,
-        head: [["Test Tecnificación Deportiva:"]],
+        head: [["Observaciones:"]],
         body: [],
         theme: "grid",
         styles: {
@@ -233,7 +279,25 @@
           textColor: [255, 255, 255],
         },
       });
-      doc.text(observaciones, 15, 40);
+      
+      const splitText3 = doc.splitTextToSize(observaciones, 180);
+      let yPosition3 = 40; 
+      const pageHeight3 = doc.internal.pageSize.height; 
+      const lineHeight3 = 10; 
+
+      splitText3.forEach(line => {
+        if (yPosition3 + lineHeight3 > pageHeight3 - 20) {
+          doc.addPage(); 
+
+          doc.setFillColor(14, 30, 46);
+          doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), "F");
+
+          yPosition3 = 20; 
+        }
+        doc.text(line, 15, yPosition3);
+        yPosition3 += lineHeight3; 
+      });
+
 
       doc.autoTable({
         startY:  215,
