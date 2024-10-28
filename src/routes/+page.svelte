@@ -5,5 +5,10 @@
 <Home />
 
 
+<style>
+  :global(body) {
+    font-family: "Prompt", sans-serif;
+  }
 
+</style>
 

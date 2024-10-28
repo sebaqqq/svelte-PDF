@@ -284,10 +284,11 @@
 }
 </script>
 
+<section class="hero">
 <div class="container">
   <div class="form-card">
     <div class="form-header">
-      <h1>Generar PDF de Evaluación</h1>
+      <h1>Generar Test Psicológico</h1>
     </div>
     <div class="form-body">
       <div class="form-grid">
@@ -326,10 +327,9 @@
       </div>
     
       <div class="form-group full-width">
-        <label for="observaciones">Observaciones</label>
-        <textarea id="observaciones" bind:value={observaciones} placeholder="Observaciones" rows="4"></textarea>
+        <label for="observaciones" class="subTitle">Observaciones</label>
+        <textarea id="observaciones" bind:value={observaciones} placeholder="Observaciones" rows="3"></textarea>
       </div>
-
       <div class="form-group">
         <label for="categoria">Nombre psicólogo</label>
         <input type="text" id="categoria" bind:value={nombrePsicologo} placeholder="Nombre psicólogo" />
@@ -353,18 +353,26 @@
     </div>
   </div>
 </div>
+</section>
 
 <style>
+  .hero {
+    background-color: #111;
+    font-family: "Prompt", sans-serif;
+    color: white;
+    padding: 1rem 0;
+  }
+
   .container {
-    max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1rem;
-    background-color: #f5f5f5;
+    max-width: 1000px;
+    background-color: #111;
   }
 
   .form-card {
     background-color: #0E1E2E;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 4px 6px rgba(31, 41, 55);
     overflow: hidden;
   }
@@ -394,17 +402,19 @@
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   .full-width {
     grid-column: 1 / -1;
   }
 
+
   label {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     color: #fff;
   }
 
@@ -447,7 +457,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    margin: 0 auto;
+    gap: 0.5rem;
+    width: 50%;
     padding: 0.75rem;
     margin-top: 2rem;
     background-color: #3f51b5;
