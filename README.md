@@ -18,5 +18,7 @@ pnpm install jspdf
 
 pnpm install jspdf-autotable
 
-pnpm install  chart.js
+pnpm install chart.js
+
+pnpm i chartjs-plugin-datalabels
 ```
